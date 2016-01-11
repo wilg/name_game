@@ -18,3 +18,8 @@
   - measure: total_cohort
     type: sum
     sql: ${cohorts.number}
+    
+  - measure: percent_of_cohort
+    type: number
+    sql: 100.0 * ${total_number} / ${total_cohort}
+    decimals: 6

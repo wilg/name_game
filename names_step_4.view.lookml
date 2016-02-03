@@ -1,3 +1,6 @@
+# build out cohort analysis to normalize data by cohort
+#  so you can compare names popularity between states or years
+#
 - view: names_step_4
   extends: names_step_3
   fields:

@@ -8,9 +8,6 @@
   extends: names_step_1
   fields:
   # computed dimensions
-  - dimension: name_gender
-    sql: ${name} || '-' || ${gender}
-
   - dimension: decade
     type: number
     sql: FLOOR(${year}/10) * 10
@@ -35,3 +32,7 @@
       
   - dimension: first_letter
     sql: SUBSTRING(${name},1,1)
+
+  - dimension: name_gender
+    sql: ${name} || '-' || ${gender}
+

@@ -16,9 +16,9 @@
   - dimension: year
     type: number
     sql: ${TABLE}.year
-    value_format: "0000"
+    value_format: "0000"    # format without commas
  
-  - dimension: population
+  - dimension: population   # rename from 'number' to 'population'
     type: number
     sql: ${TABLE}.number
     

@@ -17,8 +17,5 @@
   # sum the populations
   - measure: total_population
     type: sum
-    sql: ${number}
+    sql: ${population}
   
-  # Don't show a comma when displaying years.
-  - dimension: year
-    value_format: "0000"

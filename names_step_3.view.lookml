@@ -11,7 +11,7 @@
   
   - measure: male_population
     type: sum
-    sql: ${number}
+    sql: ${population}
     filters:
       gender: M
       
@@ -21,7 +21,7 @@
     
   - measure: north_east_population
     type: sum
-    sql: ${number}
+    sql: ${population}
     filters:
       region: Northeast
       
@@ -30,7 +30,7 @@
     
   - measure: before_1940_population
     type: sum
-    sql: ${number}
+    sql: ${population}
     filters:
       year: "< 1940"
       

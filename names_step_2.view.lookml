@@ -32,7 +32,3 @@
       
   - dimension: first_letter
     sql: SUBSTRING(${name},1,1)
-
-  - dimension: name_gender
-    sql: ${name} || '-' || ${gender}
-

@@ -16,8 +16,9 @@
   - dimension: year
     type: number
     sql: ${TABLE}.year
+    value_format: "0000"
  
-  - dimension: number
+  - dimension: population
     type: number
     sql: ${TABLE}.number
     

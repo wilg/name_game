@@ -24,4 +24,4 @@
     
   - measure: count
     type: count
-    drill_fields: [name, gender, state, year, number]
+    drill_fields: [name, gender, state, year, population]

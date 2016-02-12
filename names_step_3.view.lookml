@@ -17,7 +17,8 @@
       
   - measure: male_percentage
     type: number
-    sql: 100.0 * ${male_population} / ${total_population} 
+    sql: ${male_population} / ${total_population} 
+    value_format_name: percent_2
     
   - measure: north_east_population
     type: sum
@@ -26,7 +27,9 @@
       region: Northeast
       
   - measure: north_east_percentage
-    sql: 100.0 * ${north_east_population} / ${total_population}
+    type: number
+    sql: ${north_east_population} / ${total_population}
+    value_format_name: percent_2
     
   - measure: before_1940_population
     type: sum
@@ -35,4 +38,6 @@
       year: "< 1940"
       
   - measure: before_1940_percentage
-    sql: 100.0 * ${before_1940_population} / ${total_population}
+    type: number
+    sql: ${before_1940_population} / ${total_population}
+    value_format_name: percent_2

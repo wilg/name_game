@@ -5,7 +5,12 @@
         year, state, gender, 
         SUM(number) as number,
         row_number() OVER () as id
-      FROM names
+      FROM 
+        {% if _dialect._name == 'bigquery' %}
+          [fh-bigquery:popular_names.usa_1910_2013]
+        {% else %}
+        names
+        {% endif %}
       GROUP BY 1,2,3
       
   fields:

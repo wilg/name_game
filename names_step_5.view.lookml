@@ -9,7 +9,13 @@
         RANK() OVER (
           PARTITION BY year, state, gender 
           ORDER BY number DESC) as name_rank
-      FROM names) 
+      FROM 
+      {% if _dialect._name == 'bigquery' %}
+        [fh-bigquery:popular_names.usa_1910_2013]
+      {% else %}
+        names
+      {% endif %}
+      ) 
     
   fields:
   - dimension: name_rank

@@ -7,5 +7,5 @@
   
   - measure: percentage_of_cohort
     type: number
-    sql: ${total_population} / ${cohorts.cohort_size}
+    sql:  1.0 *${total_population} / ${cohorts.cohort_size}
     value_format_name: percent_2

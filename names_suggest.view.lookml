@@ -1,16 +1,27 @@
 # Suggest gender neutral Names
-- explore: names_step2_suggest
+- explore: names_suggest
   hidden: true
-- view: names_step2_suggest
+- view: names_suggest
   derived_table:
+    persist_for: 100 hours
     sql: |
       SELECT
-        name
-      FROM names
-      GROUP BY name
-      HAVING 
-        SUM(CASE WHEN gender='M' THEN number ELSE 0 END)::float / SUM(number) BETWEEN 0.2 AND 0.8
-        AND SUM(number) > 5000
+        name,SUM(number) as n1
+      FROM 
+        {% if _dialect._name == 'bigquery' %}
+          [fh-bigquery:popular_names.usa_1910_2013]
+        {% else %}
+          names
+        {% endif %}
+      GROUP BY 1
+      ORDER by 2 DESC
+      LIMIT 5000
   fields:
   - dimension: name
+  
+- view: suggest
+  fields:
+  - dimension: name
+    suggest_explore: name_suggest
+    suggest_dimension: name
 

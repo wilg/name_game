@@ -4,7 +4,7 @@
 - view: names_step_5
   extends: names_step_4
   sql_table_name: |
-      (SELECT 
+      (SELECT * FROM (SELECT 
         *,
         RANK() OVER (
           PARTITION BY year, state, gender 
@@ -15,7 +15,7 @@
       {% else %}
         names
       {% endif %}
-      ) 
+      ))
     
   fields:
   - dimension: name_rank

@@ -1,4 +1,5 @@
 - view: cohorts
+  view_label: Names
   derived_table:
     sql: |
       SELECT

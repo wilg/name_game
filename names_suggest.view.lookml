@@ -15,13 +15,13 @@
         {% endif %}
       GROUP BY 1
       ORDER by 2 DESC
-      LIMIT 5000
+      LIMIT 4900
   fields:
   - dimension: name
   
 - view: suggest
   fields:
   - dimension: name
-    suggest_explore: name_suggest
+    suggest_explore: names_suggest
     suggest_dimension: name
 

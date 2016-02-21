@@ -53,6 +53,16 @@
 - explore: names_step_8
   extends: names_step_7
  
+# add some external links
+- explore: names_step_9
+  extends: names_step_8
+  view: name_game
+  from: names_step_9
+  joins:
+  - join: target
+    type: cross
+    relationship: one_to_one
+
 # place to start exploring from 
 - explore: name_game
   extends: names_step_8

@@ -16,6 +16,10 @@
   - measure: state_list
     type: list
     list_field: state
+  
+  - measure: count_states
+    type: count_distinct
+    sql: ${state}
     
   - measure: min_year
     type: min

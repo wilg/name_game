@@ -67,18 +67,22 @@
   - dimension: first_year
     type: number
     value_format: "0000"
+  
   - dimension: overall_population
     type: number
+  
   - dimension: year_median
     type: number
     value_format: "0000"
+  
   - dimension: year_15_percent
     type: number
     value_format: "0000"
+  
   - dimension: year_85_percent
     type: number
     value_format: "0000"
-
+    
   - dimension: name_duration
     type: number
     sql: ${year_85_percent} - ${year_15_percent}

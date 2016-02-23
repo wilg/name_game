@@ -32,3 +32,9 @@
       Early Adopters: ${year} < ${names_facts.year_15_percent}
       Laggards: ${year} > ${names_facts.year_85_percent}
       Peak: true
+  
+  - dimension: decade
+    sql: floor(${year}/10)*10
+    
+    
+    

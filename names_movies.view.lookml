@@ -27,7 +27,7 @@
   - measure: actor_count
     type: count_distinct
     sql: ${full_name}
-    drill_fields: [full_name, roles]
+    drill_fields: [full_name, role_count]
   
   - measure: role_count
     type: count_distinct

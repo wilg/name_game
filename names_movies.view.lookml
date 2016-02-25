@@ -12,13 +12,13 @@
     links:
     - label: IMDb
       url: http://www.google.com/search?q=site:imdb.com+{{value}}&btnI
-      icon_url: http://ia.media-imdb.com/images/G/01/imdb/images/favicon-2165806970._CB379387995_.ico
+      icon_url: http://vignette3.wikia.nocookie.net/half-life/images/e/ef/IMDb_favicon.png/revision/latest?cb=20091226124457&path-prefix=en
   
   - dimension: title
     links:
     - label: IMDb
       url: http://www.google.com/search?q=site:imdb.com+{{value}}-{{year._value}}&btnI
-      icon_url: http://ia.media-imdb.com/images/G/01/imdb/images/favicon-2165806970._CB379387995_.ico
+      icon_url: http://vignette3.wikia.nocookie.net/half-life/images/e/ef/IMDb_favicon.png/revision/latest?cb=20091226124457&path-prefix=en
       
   - dimension: year
     type: number

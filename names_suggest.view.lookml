@@ -25,3 +25,5 @@
     suggest_explore: names_suggest
     suggest_dimension: name
 
+  - dimension: gender
+    suggestions: [M,F]

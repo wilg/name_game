@@ -1,4 +1,6 @@
 - explore: names_facts
+  hidden: true
+  
 - view: names_facts
   view_label: Names
   derived_table:

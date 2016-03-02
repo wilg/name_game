@@ -13,7 +13,8 @@
 
 # add some simple dimensions
 - explore: names_step_2
-  hidden: true
+  label: Name Game Basic
+  #hidden: true
 
 # add some filtered measure to analyse specific things
 - explore: names_step_3
@@ -67,3 +68,4 @@
 - explore: name_game
   extends: names_step_8
   from: names_step_8
+  hidden: false

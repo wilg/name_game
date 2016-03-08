@@ -1,5 +1,4 @@
-- connection: bigquery_publicdata
-#- connection: imdb
+- connection: lookerdata_publicdata
 
 - include: "names*.view.lookml"
 

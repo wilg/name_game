@@ -46,8 +46,31 @@
   - dimension: population
   - dimension: cumlative_population
   
+- explore: name_gender_year3
+  hidden: true
+- view: name_gender_year3
+  derived_table:
+    sql: |
+      SELECT * FROM (
+          SELECT
+            name
+            , gender
+            , year
+            , population
+            , cumlative_population
+            , MAX(cumlative_population) OVER (PARTITION BY name, gender ORDER BY year DESC) as overall_population
+          FROM ${name_gender_year2.SQL_TABLE_NAME} 
+      )
+        
+  fields:
+  - dimension: name
+  - dimension: gender
+  - dimension: year
+  - dimension: population
+  - dimension: cumlative_population
+  - dimension: overall_population
 
-  
+
 - view: names_facts
   view_label: Names
   derived_table:
@@ -73,15 +96,7 @@
               ELSE null
               END ) as year_85_percent
         , RANK() OVER (PARTITION BY gender ORDER by overall_population DESC) as overall_rank
-      FROM (
-        SELECT
-          name
-          , gender
-          , year
-          , cumlative_population
-          , MAX(cumlative_population) OVER (PARTITION BY name, gender ORDER BY year DESC) as overall_population
-        FROM ${name_gender_year2.SQL_TABLE_NAME} as nyg2
-      )
+      FROM ${name_gender_year3.SQL_TABLE_NAME}
       GROUP BY 1,2,3
       )
       

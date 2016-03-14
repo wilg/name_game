@@ -23,6 +23,31 @@
   - dimension: year
   - dimension: population
   
+
+- explore: name_gender_year2
+  hidden: true
+- view: name_gender_year2
+  derived_table:
+    sql: |
+      SELECT * FROM (
+          SELECT
+            name
+            , gender
+            , year
+            , population
+            , SUM(population) OVER (PARTITION BY name, gender ORDER BY year) as cumlative_population
+          FROM ${name_gender_year.SQL_TABLE_NAME} 
+      )
+        
+  fields:
+  - dimension: name
+  - dimension: gender
+  - dimension: year
+  - dimension: population
+  - dimension: cumlative_population
+  
+
+  
 - view: names_facts
   view_label: Names
   derived_table:
@@ -31,7 +56,6 @@
       SELECT
         name
         , gender
-        , first_year
         , overall_population
         , MIN(
             CASE WHEN cumlative_population > overall_population *0.5
@@ -54,20 +78,11 @@
           name
           , gender
           , year
-          , first_year
           , cumlative_population
           , MAX(cumlative_population) OVER (PARTITION BY name, gender ORDER BY year DESC) as overall_population
-        FROM (
-          SELECT
-            name
-            , gender
-            , year
-            , MIN(year) OVER (PARTITION BY name, gender) as first_year
-            , SUM(population) OVER (PARTITION BY name, gender ORDER BY year) as cumlative_population
-          FROM ${name_gender_year.SQL_TABLE_NAME} as ngsy
-        )
+        FROM ${name_gender_year2.SQL_TABLE_NAME} as nyg2
       )
-      GROUP BY 1,2,3,4
+      GROUP BY 1,2,3
       )
       
   fields:
@@ -76,10 +91,6 @@
   - dimension: gender
     hidden: true
     
-  - dimension: first_year
-    type: number
-    value_format: "0000"
-  
   - dimension: overall_population
     type: number
   

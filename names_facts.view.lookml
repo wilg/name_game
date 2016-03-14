@@ -1,6 +1,28 @@
 - explore: names_facts
   hidden: true
   
+- explore: name_gender_year
+  hidden: true
+- view: name_gender_year
+  derived_table:
+    sql: |
+        SELECT
+          name
+          , gender
+          , year
+          , SUM(number) as population
+        FROM  {% if _dialect._name == 'bigquery' %}
+                [fh-bigquery:popular_names.usa_1910_2013]
+              {% else %}
+                names
+              {% endif %}
+        GROUP BY 1,2,3
+  fields:
+  - dimension: name
+  - dimension: gender
+  - dimension: year
+  - dimension: population
+  
 - view: names_facts
   view_label: Names
   derived_table:
@@ -42,19 +64,7 @@
             , year
             , MIN(year) OVER (PARTITION BY name, gender) as first_year
             , SUM(population) OVER (PARTITION BY name, gender ORDER BY year) as cumlative_population
-          FROM (
-          SELECT
-              name
-              , gender
-              , year
-              , SUM(number) as population
-            FROM  {% if _dialect._name == 'bigquery' %}
-                    [fh-bigquery:popular_names.usa_1910_2013]
-                  {% else %}
-                    names
-                  {% endif %}
-            GROUP BY 1,2,3
-          )
+          FROM ${name_gender_year.SQL_TABLE_NAME} as ngsy
         )
       )
       GROUP BY 1,2,3,4

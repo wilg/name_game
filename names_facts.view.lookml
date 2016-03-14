@@ -70,6 +70,28 @@
   - dimension: cumlative_population
   - dimension: overall_population
 
+- explore: name_median
+  hidden: true
+- view: name_median
+  derived_table:
+    sql: |
+      SELECT * FROM (
+      SELECT
+        name
+        , gender
+        , MIN(
+            CASE WHEN cumlative_population > overall_population *0.5
+              THEN year
+              ELSE null
+              END ) as year_median
+      FROM ${name_gender_year3.SQL_TABLE_NAME}
+      GROUP BY 1,2
+      )
+  fields:
+  - dimension: name
+  - dimension: gender
+  - dimension: year_median
+ 
 
 - view: names_facts
   view_label: Names

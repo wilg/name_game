@@ -154,5 +154,19 @@
     
   - dimension: overall_rank
     type: number
+    
+  - dimension: overall_rank_tiered
+    type: tier
+    tiers: [20,80,250,500]
+    sql: ${overall_rank}
+    style: integer
+  
+  - dimension: overall_popularity
+    sql_case:
+      'Super Common': ${overall_rank} < 20
+      'Common': ${overall_rank} < 80
+      'Conventional': ${overall_rank} < 250
+      'Rare Conventional': ${overall_rank} < 500
+      'Unconventional': true
 
     

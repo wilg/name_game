@@ -1,6 +1,6 @@
 - connection: lookerdata_publicdata
 
-- include: "names*.view.lookml"
+- include: "names*.view.lookml" 
 
 - persist_for: 10000 hours
 

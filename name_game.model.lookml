@@ -67,6 +67,6 @@
 
 # place to start exploring from 
 - explore: name_game
-  extends: names_step_8
-  from: names_step_8
-  hidden: false
+  extends: names_step_9   # Tig: changed from names_step_9
+  from: names_step_9
+  hidden: false     

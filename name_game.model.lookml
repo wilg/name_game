@@ -57,8 +57,9 @@
  
 # add some external links
 - explore: names_step_9
+  label: Name Game Advanced
   extends: names_step_8
-  view: name_game_advanced
+  view: name_game
   from: names_step_9
   joins:
   - join: target
@@ -67,6 +68,6 @@
 
 # place to start exploring from 
 - explore: name_game
-  extends: names_step_8   # Tig: changed from names_step_9
+  extends: names_step_8   # Tig: changed from names_step_9 and back to 8
   from: names_step_8
   hidden: false     

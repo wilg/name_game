@@ -3,6 +3,7 @@
 - include: "names*.view.lookml" 
 
 - persist_for: 10000 hours
+- case_sensitive: false
 
 # basic model out of the generator
 - explore: names_step_0

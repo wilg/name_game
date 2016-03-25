@@ -134,14 +134,20 @@
   - dimension: year_median
     type: number
     value_format: "0000"
+    html: |
+      {{ rendered_value }}
   
   - dimension: year_15_percent
     type: number
     value_format: "0000"
+    html: |
+      {{ rendered_value }}
   
   - dimension: year_85_percent
     type: number
     value_format: "0000"
+    html: |
+      {{ rendered_value }}
     
   - dimension: name_duration
     type: number
@@ -154,6 +160,8 @@
     
   - dimension: overall_rank
     type: number
+    html: |
+      {{ rendered_value }}
     
   - dimension: overall_rank_tiered
     type: tier

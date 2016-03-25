@@ -35,6 +35,8 @@
   
   - dimension: decade
     sql: floor(${year}/10)*10
+    html: |
+      {{ rendered_value }}
     
     
     

@@ -1,5 +1,5 @@
 - dashboard: state_locality
-  title: State Locality
+  title:  States and the Names that are Most Over Represented in the Population
   layout: tile
   tile_size: 40
 

@@ -1,6 +1,7 @@
 - connection: lookerdata_publicdata
 - case_sensitive: false             # added by Tig so filters aren't case sensitive
 - include: "names*.view.lookml" 
+- include: "*.dashboard.lookml"
 
 - persist_for: 10000 hours
 - case_sensitive: false

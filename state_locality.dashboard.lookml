@@ -21,7 +21,7 @@
     name: ak
     title: AK
     filters:
-      names_step_10.select_state: Ak
+      names_step_10.select_state: AK
     type: table
     model: name_game
     explore: names_step_10

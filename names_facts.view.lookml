@@ -118,15 +118,21 @@
               ELSE null
               END ) as year_85_percent
         , RANK() OVER (PARTITION BY gender ORDER by overall_population DESC) as overall_rank
+        , MAX(overall_population) OVER (PARTITION BY name) as dominant_overall_population
       FROM ${name_gender_year3.SQL_TABLE_NAME}
       GROUP BY 1,2,3
       )
       
   fields:
   - dimension: name
-    hidden: true
+    #hidden: true
+    
   - dimension: gender
-    hidden: true
+    #hidden: true
+    
+  - dimension: is_dominant_gender
+    type: yesno
+    sql: ${overall_population} = ${TABLE}.dominant_overall_population
     
   - dimension: overall_population
     type: number

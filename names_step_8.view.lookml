@@ -2,7 +2,11 @@
   extends: [names_step_7, suggest]
   fields:
   - dimension: name
+    drill_fields: [state, decade, region]
     links:
+    - label: Learn more about the name '{{ value }}'
+      url: https://looker.com/publicdata/dashboards/3?Name={{ value }}
+      icon_url: https://looker.com/favicon.ico
     - label: Search Wikipedia for {{value}}
       url: https://en.wikipedia.org/wiki/{{value}}
       icon_url: https://en.wikipedia.org/static/favicon/wikipedia.ico

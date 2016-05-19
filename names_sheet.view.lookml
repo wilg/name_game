@@ -1,4 +1,5 @@
 - explore: names_sheet
+  persist_for: 0 seconds
   joins: 
   - join: names_facts
     sql_on: ${names_sheet.name} = ${names_facts.name}

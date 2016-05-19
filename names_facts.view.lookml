@@ -100,6 +100,7 @@
       SELECT * FROM (
       SELECT
         name
+        , UPPER(name) as normalized_name
         , gender
         , overall_population
         , MIN(
@@ -120,12 +121,15 @@
         , RANK() OVER (PARTITION BY gender ORDER by overall_population DESC) as overall_rank
         , MAX(overall_population) OVER (PARTITION BY name) as dominant_overall_population
       FROM ${name_gender_year3.SQL_TABLE_NAME}
-      GROUP BY 1,2,3
+      GROUP BY 1,2,3,4
       )
       
   fields:
   - dimension: name
     #hidden: true
+  
+  - dimension: normalized_name
+    hidden: true
     
   - dimension: gender
     #hidden: true

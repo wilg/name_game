@@ -1,5 +1,5 @@
 - explore: names_sheet
-  persist_for: 0 seconds
+  persist_for: 60 seconds
   joins: 
   - join: names_facts
     sql_on: ${names_sheet.normalized_name} = ${names_facts.normalized_name}

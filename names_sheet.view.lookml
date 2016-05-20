@@ -8,6 +8,7 @@
 
 - view: names_sheet
   derived_table:
+    persist_for: 2 minutes
     sql: |
       SELECT 
           row_number() OVER() as id

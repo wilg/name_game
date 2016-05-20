@@ -9,8 +9,8 @@
 - view: names_sheet
   derived_table:
     sql: |
-      SELECT * FROM (
-        SELECT row_number() over() as id 
+      SELECT 
+          row_number() OVER() as id
           , name
           , UPPER(
             CASE WHEN REGEXP_MATCH(name, r'\,')
@@ -19,7 +19,6 @@
             END
           ) as normalized_name
         FROM namesheet.names
-      ) 
   
   fields:
   - dimension: id

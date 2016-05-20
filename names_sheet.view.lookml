@@ -19,7 +19,7 @@
             END
           ) as normalized_name
         FROM namesheet.names
-      ) WHERE id > 1
+      ) 
   
   fields:
   - dimension: id

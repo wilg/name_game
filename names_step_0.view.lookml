@@ -12,8 +12,6 @@
   fields:
   - dimension: name
     sql: ${TABLE}.name
-    html: |
-      {{ rendered_value }}
 
   - dimension: gender
     sql: ${TABLE}.gender

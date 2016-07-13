@@ -1,4 +1,4 @@
-- connection: lookerdata_publicdata
+- connection: lookerdata_publicdata 
 - case_sensitive: false             # added by Tig so filters aren't case sensitive
 - include: "names*.view.lookml" 
 - include: "*.dashboard.lookml"

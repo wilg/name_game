@@ -29,6 +29,8 @@
         ${state} in ('AR','LA','MS','AL','GA','FL','SC','NC','VA','TN',
             'KY','WV')
       Unset: true
+    drill_fields: [state]
       
   - dimension: first_letter
     sql: SUBSTRING(${name},1,1)
+    drill_fields: [name, gender]

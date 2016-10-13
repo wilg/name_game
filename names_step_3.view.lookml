@@ -15,10 +15,21 @@
     filters:
       gender: M
       
+  - measure: female_population
+    type: sum
+    sql: ${population}
+    filters:
+      gender: F
+      
   - measure: male_percentage
     type: number
     sql: 1.0 * ${male_population} / ${total_population} 
-    value_format_name: percent_2
+    value_format_name: percent_0
+    
+  - measure: female_percentage
+    type: number
+    sql: 1.0 * ${female_population} / ${total_population} 
+    value_format_name: percent_0
     
   - measure: north_east_population
     type: sum

@@ -1,8 +1,9 @@
 - view: names_step_8
   extends: [names_step_7, suggest]
   fields:
+  
   - dimension: name
-    drill_fields: [state, decade, region]
+    drill_fields: [year, state, region]
     links:
     - label: Learn more about the name '{{ value }}'
       url: https://looker.com/publicdata/dashboards/3?Name={{ value }}

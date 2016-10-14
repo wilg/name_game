@@ -3,10 +3,10 @@
   fields:
   
   - dimension: name
-    drill_fields: [year, state, region]
+    drill_fields: [state, region]
     links:
-    - label: "{{ value }} over Time"
-      url: /explore/name_game/names_step_8?f[names_step_8.name]={{ filterable_value | url_encode }}&fields=names_step_8.year,names_step_8.total_population,names_step_8.female_percentage
+    - label: "Popularity over Time"
+      url: /explore/name_game/names_step_8?f[names_step_8.name]={{ filterable_value | url_encode }}&fields=names_step_8.year,names_step_8.average_name_rank,names_step_8.female_percentage
 
     - label: Learn more about the name '{{ value }}'
       url: https://looker.com/publicdata/dashboards/3?Name={{ value }}

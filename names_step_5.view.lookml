@@ -30,3 +30,8 @@
   - measure: average_name_rank
     type: average
     sql: ${name_rank}
+    
+  - measure: popularity_index
+    type: average
+    value_format_name: decimal_2
+    sql: 1 / ${name_rank}

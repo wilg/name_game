@@ -30,7 +30,53 @@
             'KY','WV')
       Unset: true
     drill_fields: [state]
-      
+    
+  - dimension: westness
+    hidden: true
+    type: number
+    sql: |
+      CASE WHEN ${region} = 'West' THEN 1 
+           WHEN ${region} = 'Southwest' THEN 0.7 
+           WHEN ${region} = 'Midwest' THEN 0.75
+           WHEN ${region} = 'Northeast' THEN 0
+           WHEN ${region} = 'Southeast' THEN 0.2
+           ELSE 0
+       END
+    
+  - dimension: westness
+    hidden: true
+    type: number
+    sql: |
+      CASE WHEN ${region} = 'West' THEN 1 
+           WHEN ${region} = 'Southwest' THEN 0.7 
+           WHEN ${region} = 'Midwest' THEN 0.75
+           WHEN ${region} = 'Northeast' THEN 0
+           WHEN ${region} = 'Southeast' THEN 0.2
+           ELSE 0
+       END
+       
+  - dimension: northness
+    hidden: true
+    type: number
+    sql: |
+      CASE WHEN ${region} = 'West' THEN 0.6
+           WHEN ${region} = 'Southwest' THEN 0
+           WHEN ${region} = 'Midwest' THEN 0.2
+           WHEN ${region} = 'Northeast' THEN 1
+           WHEN ${region} = 'Southeast' THEN 0
+           ELSE 0
+       END
+       
+  - measure: average_westness
+    hidden: true
+    type: average
+    sql: ${westness}
+    
+  - measure: average_northness
+    hidden: true
+    type: average
+    sql: ${northness}
+
   - dimension: first_letter
     sql: SUBSTRING(${name},1,1)
     drill_fields: [name, gender]

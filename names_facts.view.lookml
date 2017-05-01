@@ -19,6 +19,7 @@
         GROUP BY 1,2,3
   fields:
   - dimension: name
+    hidden: true
   - dimension: gender
   - dimension: year
   - dimension: population
@@ -126,13 +127,13 @@
       
   fields:
   - dimension: name
-    #hidden: true
+    hidden: true
   
   - dimension: normalized_name
     hidden: true
     
   - dimension: gender
-    #hidden: true
+    hidden: true
     
   - dimension: is_dominant_gender
     type: yesno

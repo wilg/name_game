@@ -31,6 +31,10 @@
     sql: 1.0 * ${female_population} / ${total_population} 
     value_format_name: percent_0
     
+  - measure: unisexness
+    type: number
+    sql: abs(${female_percentage} - 0.5)
+    
   - measure: north_east_population
     type: sum
     sql: ${population}

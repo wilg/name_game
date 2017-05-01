@@ -147,27 +147,31 @@
     value_format: "0000"
     html: |
       {{ rendered_value }}
+    hidden: true
   
   - dimension: year_15_percent
     type: number
     value_format: "0000"
     html: |
       {{ rendered_value }}
+    hidden: true
   
   - dimension: year_85_percent
     type: number
     value_format: "0000"
     html: |
       {{ rendered_value }}
+    hidden: true
     
   - dimension: name_duration
     type: number
     sql: ${year_85_percent} - ${year_15_percent}
+    hidden: true
 
   - dimension: name_ramp
     type: number
     sql: ${year_median} - ${year_15_percent}
-
+    hidden: true
     
   - dimension: overall_rank
     type: number

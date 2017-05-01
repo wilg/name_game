@@ -25,7 +25,9 @@
     hidden: true
   - dimension: number
     type:
+    hidden: true
     
   - measure: cohort_size
+    hidden: true
     type: sum
     sql: ${number}
